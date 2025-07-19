@@ -3,15 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HireNow - Find Your Dream Job</title>
-    <meta name="description" content="Discover amazing job opportunities from top companies" />
-    <meta name="author" content="HireNow" />
-
-    <meta property="og:title" content="HireNow - Find Your Dream Job" />
-    <meta property="og:description" content="Discover amazing job opportunities from top companies" />
-    <meta property="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
+    <title>Job Listings - HireNow</title>
+    <meta name="description" content="Browse all available job opportunities" />
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,6 +28,7 @@
             },
             backgroundImage: {
               'gradient-hero': 'linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(212 100% 47%) 100%)',
+              'gradient-card': 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%)',
             },
             boxShadow: {
               'card-hover': '0 8px 25px -5px hsl(221 83% 53% / 0.2)',
@@ -45,7 +39,7 @@
     </script>
   </head>
 
-  <body class="bg-background text-foreground">
+  <body class="bg-background text-foreground min-h-screen">
     <!-- Navigation -->
     <nav class="bg-card border-b border-border sticky top-0 z-50">
       <div class="container mx-auto px-4 py-4">
@@ -54,20 +48,15 @@
             <a href="index.html" class="text-2xl font-bold text-primary">HireNow</a>
             <div class="hidden md:flex space-x-6">
               <a href="index.html" class="text-foreground hover:text-primary transition-colors">Home</a>
-              <a href="jobs.html" class="text-foreground hover:text-primary transition-colors">Jobs</a>
+              <a href="jobs.html" class="text-primary font-medium">Jobs</a>
               <a href="about.html" class="text-foreground hover:text-primary transition-colors">About</a>
             </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <a href="jobs.html" class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
-              Find Jobs
-            </a>
           </div>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Job Header -->
     <div class="relative bg-gradient-hero overflow-hidden">
       <div 
         class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
@@ -75,8 +64,8 @@
       ></div>
       <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90"></div>
       
-      <div class="relative container mx-auto px-4 py-24 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold text-primary-foreground mb-6">
+      <div class="relative container mx-auto px-4 py-16 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-primary-foreground mb-4">
           Find Your Dream Job
         </h1>
         <p class="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
@@ -92,73 +81,39 @@
               type="text"
               placeholder="Search for jobs..."
               class="w-full pl-10 pr-4 py-3 rounded-lg bg-card/95 border border-border text-foreground"
-              id="heroSearch"
+              id="jobSearch"
             />
           </div>
-          <button onclick="searchFromHero()" class="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors">
+          <button onclick="performSearch()" class="bg-secondary text-secondary-foreground px-6 py-3 rounded-lg hover:bg-secondary/90 transition-colors">
             Search
           </button>
         </div>
       </div>
     </div>
 
-    <!-- Features Section -->
-    <div class="container mx-auto px-4 py-16">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-foreground mb-4">Why Choose HireNow?</h2>
-        <p class="text-muted-foreground max-w-2xl mx-auto">
-          We connect talented professionals with the best companies in the industry
+    <!-- Job Listings -->
+    <div class="container mx-auto px-4 py-12">
+      <div class="flex justify-between items-center mb-8">
+        <h2 class="text-3xl font-bold text-foreground" id="resultsTitle">
+          Latest Job Opportunities
+        </h2>
+        <p class="text-muted-foreground" id="jobCount">
+          Loading jobs...
         </p>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center p-6 bg-card border border-border rounded-lg">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-foreground mb-2">Top Companies</h3>
-          <p class="text-muted-foreground">Access opportunities from industry-leading companies and startups</p>
-        </div>
-
-        <div class="text-center p-6 bg-card border border-border rounded-lg">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-foreground mb-2">Fast Application</h3>
-          <p class="text-muted-foreground">Quick and easy application process to get you hired faster</p>
-        </div>
-
-        <div class="text-center p-6 bg-card border border-border rounded-lg">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-foreground mb-2">Verified Jobs</h3>
-          <p class="text-muted-foreground">All job postings are verified and from legitimate companies</p>
-        </div>
+      
+      <div id="noResults" class="text-center py-12 hidden">
+        <p class="text-xl text-muted-foreground">No jobs found matching your search.</p>
+        <p class="text-muted-foreground mt-2">Try adjusting your search terms.</p>
       </div>
-    </div>
-
-    <!-- CTA Section -->
-    <div class="bg-primary py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold text-primary-foreground mb-4">Ready to Start Your Journey?</h2>
-        <p class="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-          Join thousands of professionals who have found their dream jobs through HireNow
-        </p>
-        <a href="jobs.html" class="inline-block bg-card text-primary px-8 py-3 rounded-lg font-semibold hover:bg-card/90 transition-colors">
-          Browse All Jobs
-        </a>
+      
+      <div id="jobGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Jobs will be dynamically loaded here -->
       </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-card border-t border-border py-12">
+    <footer class="bg-card border-t border-border py-12 mt-16">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -198,22 +153,7 @@
       </div>
     </footer>
 
-    <script>
-      function searchFromHero() {
-        const query = document.getElementById('heroSearch').value;
-        if (query.trim()) {
-          window.location.href = `jobs.html?search=${encodeURIComponent(query)}`;
-        } else {
-          window.location.href = 'jobs.html';
-        }
-      }
-
-      // Allow Enter key to trigger search
-      document.getElementById('heroSearch').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          searchFromHero();
-        }
-      });
-    </script>
+    <script src="assets/js/jobs-data.js"></script>
+    <script src="assets/js/jobs.js"></script>
   </body>
 </html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Details - HireNow</title>
+    <meta name="description" content="View detailed job information" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'hsl(210 20% 98%)',
+              foreground: 'hsl(222.2 84% 4.9%)',
+              card: 'hsl(0 0% 100%)',
+              'card-foreground': 'hsl(222.2 84% 4.9%)',
+              primary: 'hsl(221 83% 53%)',
+              'primary-foreground': 'hsl(210 40% 98%)',
+              secondary: 'hsl(210 40% 96.1%)',
+              'secondary-foreground': 'hsl(222.2 47.4% 11.2%)',
+              muted: 'hsl(210 40% 96.1%)',
+              'muted-foreground': 'hsl(215.4 16.3% 46.9%)',
+              accent: 'hsl(212 100% 47%)',
+              'accent-foreground': 'hsl(210 40% 98%)',
+              border: 'hsl(214.3 31.8% 91.4%)',
+              success: 'hsl(142 76% 36%)',
+              'success-foreground': 'hsl(210 40% 98%)',
+            },
+            backgroundImage: {
+              'gradient-card': 'linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 20% 99%) 100%)',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-background text-foreground min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-card border-b border-border sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="text-2xl font-bold text-primary">HireNow</a>
+            <div class="hidden md:flex space-x-6">
+              <a href="index.html" class="text-foreground hover:text-primary transition-colors">Home</a>
+              <a href="jobs.html" class="text-foreground hover:text-primary transition-colors">Jobs</a>
+              <a href="about.html" class="text-foreground hover:text-primary transition-colors">About</a>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="jobs.html" class="text-primary hover:underline">← Back to Jobs</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Job Detail Content -->
+    <div class="container mx-auto px-4 py-12">
+      <div id="jobNotFound" class="text-center py-12 hidden">
+        <h1 class="text-3xl font-bold text-foreground mb-4">Job Not Found</h1>
+        <p class="text-muted-foreground mb-8">The job you're looking for doesn't exist.</p>
+        <a href="jobs.html" class="bg-primary text-primary-foreground px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors">
+          Browse All Jobs
+        </a>
+      </div>
+
+      <div id="jobDetailContent" class="hidden">
+        <!-- Job Header -->
+        <div class="bg-gradient-card border border-border rounded-lg p-8 mb-8">
+          <div class="flex flex-col lg:flex-row lg:justify-between lg:items-start gap-6">
+            <div class="flex-1">
+              <h1 id="jobTitle" class="text-3xl lg:text-4xl font-bold text-foreground mb-4"></h1>
+              <p id="jobCompany" class="text-xl text-muted-foreground mb-4"></p>
+              
+              <div class="flex flex-wrap gap-4 mb-6">
+                <div class="flex items-center text-muted-foreground">
+                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span id="jobLocation"></span>
+                </div>
+                
+                <div class="flex items-center text-muted-foreground">
+                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                  </svg>
+                  <span id="jobSalary" class="font-medium"></span>
+                </div>
+                
+                <div class="flex items-center text-muted-foreground">
+                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"></path>
+                  </svg>
+                  <span id="jobExperience"></span>
+                </div>
+                
+                <div class="flex items-center text-muted-foreground">
+                  <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 9l2 2 4-4"></path>
+                  </svg>
+                  <span id="jobType" class="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"></span>
+                </div>
+              </div>
+              
+              <div class="flex flex-wrap gap-2 mb-6" id="jobSkills">
+                <!-- Skills badges will be populated here -->
+              </div>
+            </div>
+            
+            <div class="flex flex-col gap-3">
+              <button class="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                Apply Now
+              </button>
+              <button class="border border-border text-foreground px-8 py-3 rounded-lg hover:bg-muted transition-colors">
+                Save Job
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Main Content -->
+          <div class="lg:col-span-2 space-y-8">
+            <!-- Job Description -->
+            <div class="bg-card border border-border rounded-lg p-6">
+              <h2 class="text-2xl font-semibold text-foreground mb-4">Job Description</h2>
+              <p id="jobDescription" class="text-muted-foreground leading-relaxed"></p>
+            </div>
+
+            <!-- Requirements -->
+            <div class="bg-card border border-border rounded-lg p-6">
+              <h2 class="text-2xl font-semibold text-foreground mb-4">Requirements</h2>
+              <ul id="jobRequirements" class="space-y-3">
+                <!-- Requirements will be populated here -->
+              </ul>
+            </div>
+
+            <!-- Benefits -->
+            <div class="bg-card border border-border rounded-lg p-6">
+              <h2 class="text-2xl font-semibold text-foreground mb-4">Benefits & Perks</h2>
+              <ul id="jobBenefits" class="space-y-3">
+                <!-- Benefits will be populated here -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="space-y-6">
+            <!-- Application Deadline -->
+            <div class="bg-card border border-border rounded-lg p-6">
+              <h3 class="text-lg font-semibold text-foreground mb-4">Application Details</h3>
+              <div class="space-y-3">
+                <div>
+                  <p class="text-sm text-muted-foreground">Posted Date</p>
+                  <p id="jobPostedDate" class="font-medium text-foreground"></p>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground">Application Deadline</p>
+                  <p id="jobDeadline" class="font-medium text-foreground"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Share Job -->
+            <div class="bg-card border border-border rounded-lg p-6">
+              <h3 class="text-lg font-semibold text-foreground mb-4">Share this Job</h3>
+              <div class="flex gap-2">
+                <button onclick="shareJob('twitter')" class="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/80 transition-colors text-sm">
+                  Twitter
+                </button>
+                <button onclick="shareJob('linkedin')" class="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/80 transition-colors text-sm">
+                  LinkedIn
+                </button>
+                <button onclick="shareJob('copy')" class="flex-1 bg-secondary text-secondary-foreground px-4 py-2 rounded hover:bg-secondary/80 transition-colors text-sm">
+                  Copy Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border py-12 mt-16">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-foreground mb-4">HireNow</h3>
+            <p class="text-muted-foreground">
+              Connecting talented professionals with amazing opportunities.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">For Job Seekers</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="jobs.html" class="hover:text-primary transition-colors">Browse Jobs</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Career Advice</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Resume Tips</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">For Employers</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="#" class="hover:text-primary transition-colors">Post a Job</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Find Candidates</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">Company</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+          <p>&copy; 2024 HireNow. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/jobs-data.js"></script>
+    <script src="assets/js/job-detail.js"></script>
+  </body>
+</html>

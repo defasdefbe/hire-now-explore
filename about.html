@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - HireNow</title>
+    <meta name="description" content="Learn more about HireNow and our mission" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              background: 'hsl(210 20% 98%)',
+              foreground: 'hsl(222.2 84% 4.9%)',
+              card: 'hsl(0 0% 100%)',
+              'card-foreground': 'hsl(222.2 84% 4.9%)',
+              primary: 'hsl(221 83% 53%)',
+              'primary-foreground': 'hsl(210 40% 98%)',
+              secondary: 'hsl(210 40% 96.1%)',
+              'secondary-foreground': 'hsl(222.2 47.4% 11.2%)',
+              muted: 'hsl(210 40% 96.1%)',
+              'muted-foreground': 'hsl(215.4 16.3% 46.9%)',
+              accent: 'hsl(212 100% 47%)',
+              'accent-foreground': 'hsl(210 40% 98%)',
+              border: 'hsl(214.3 31.8% 91.4%)',
+            },
+            backgroundImage: {
+              'gradient-hero': 'linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(212 100% 47%) 100%)',
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-background text-foreground">
+    <!-- Navigation -->
+    <nav class="bg-card border-b border-border sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="text-2xl font-bold text-primary">HireNow</a>
+            <div class="hidden md:flex space-x-6">
+              <a href="index.html" class="text-foreground hover:text-primary transition-colors">Home</a>
+              <a href="jobs.html" class="text-foreground hover:text-primary transition-colors">Jobs</a>
+              <a href="about.html" class="text-primary font-medium">About</a>
+            </div>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="jobs.html" class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+              Find Jobs
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-gradient-hero py-20">
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+          About HireNow
+        </h1>
+        <p class="text-xl text-primary-foreground/90 max-w-3xl mx-auto">
+          We're on a mission to connect talented professionals with amazing opportunities and help companies find their perfect team members.
+        </p>
+      </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="container mx-auto px-4 py-16">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            At HireNow, we believe that finding the right job or the right candidate shouldn't be a struggle. 
+            Our platform bridges the gap between talented professionals and innovative companies, creating 
+            meaningful connections that drive success for everyone involved.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 class="text-2xl font-semibold text-foreground mb-4">For Job Seekers</h3>
+            <p class="text-muted-foreground leading-relaxed mb-6">
+              We understand that your career is more than just a job – it's your passion, your growth, and your future. 
+              That's why we've created a platform that not only showcases opportunities but also provides the tools 
+              and resources you need to succeed in your job search.
+            </p>
+            <ul class="space-y-2 text-muted-foreground">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Curated job opportunities from top companies
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Transparent salary information and benefits
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Easy application process with direct employer contact
+              </li>
+            </ul>
+          </div>
+          <div class="bg-card border border-border rounded-lg p-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-foreground mb-2">10,000+</h4>
+              <p class="text-muted-foreground">Job Seekers Helped</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div class="order-2 md:order-1 bg-card border border-border rounded-lg p-8">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <h4 class="text-xl font-semibold text-foreground mb-2">500+</h4>
+              <p class="text-muted-foreground">Partner Companies</p>
+            </div>
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="text-2xl font-semibold text-foreground mb-4">For Employers</h3>
+            <p class="text-muted-foreground leading-relaxed mb-6">
+              Finding the right talent is crucial for your company's success. We help you connect with 
+              qualified candidates who are not just looking for any job, but specifically seeking 
+              opportunities that match their skills and career goals.
+            </p>
+            <ul class="space-y-2 text-muted-foreground">
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Access to a pool of pre-qualified candidates
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Streamlined posting and application management
+              </li>
+              <li class="flex items-center">
+                <svg class="w-5 h-5 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Direct communication with interested candidates
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="bg-muted py-16">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-foreground mb-4">Our Values</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">
+            These core values guide everything we do and shape the experience we create for our users.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-foreground mb-2">Trust & Transparency</h3>
+            <p class="text-muted-foreground">
+              We believe in honest communication and transparent processes. Every job posting is verified, 
+              and we provide clear information about roles, companies, and expectations.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-foreground mb-2">Innovation</h3>
+            <p class="text-muted-foreground">
+              We continuously improve our platform using the latest technology to make job searching 
+              and hiring more efficient and effective for everyone.
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-foreground mb-2">Community</h3>
+            <p class="text-muted-foreground">
+              We're building more than just a job board – we're creating a community where professionals 
+              can grow, learn, and support each other's career journeys.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="container mx-auto px-4 py-16 text-center">
+      <h2 class="text-3xl font-bold text-foreground mb-6">Ready to Get Started?</h2>
+      <p class="text-muted-foreground mb-8 max-w-2xl mx-auto">
+        Whether you're looking for your next career opportunity or searching for the perfect team member, 
+        HireNow is here to help you succeed.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="jobs.html" class="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+          Browse Jobs
+        </a>
+        <a href="#" class="border border-border text-foreground px-8 py-3 rounded-lg hover:bg-muted transition-colors">
+          Post a Job
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold text-foreground mb-4">HireNow</h3>
+            <p class="text-muted-foreground">
+              Connecting talented professionals with amazing opportunities.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">For Job Seekers</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="jobs.html" class="hover:text-primary transition-colors">Browse Jobs</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Career Advice</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Resume Tips</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">For Employers</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="#" class="hover:text-primary transition-colors">Post a Job</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Find Candidates</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-foreground mb-4">Company</h4>
+            <ul class="space-y-2 text-muted-foreground">
+              <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+          <p>&copy; 2024 HireNow. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
